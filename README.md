@@ -6,6 +6,9 @@ The implementation of: <br>
 ## Requirements
 - Pytorch
 ## Setup
+```
+python train.py
+```
 ## Citation
 If you find this repository useful, please consider citing our work:
 ```
