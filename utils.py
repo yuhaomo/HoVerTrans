@@ -59,7 +59,7 @@ class Custom_Dataset(Dataset):
         file_name = patience_info['name']
         file_path = glob(self.root+'/*/'+file_name)[0]
         file_name = file_name.split('.')[0]
-        label = patience_info['class']
+        label = patience_info['label']
         img = Image.open(file_path)
         if self.transform is not None:
             img = self.transform(img)

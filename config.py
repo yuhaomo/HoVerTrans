@@ -3,12 +3,12 @@ import argparse
 
 def config():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data_path', type=str, default='/home/myh/MoYuhao/DATA/OURS')
-    parser.add_argument('--csv_path', type=str, default='/home/myh/MoYuhao/DATA/OURS/ourdataset_bm.csv')
+    parser.add_argument('--data_path', type=str)
+    parser.add_argument('--csv_path', type=str)
     parser.add_argument('--model_name', type=str, default='hovertrans')
-    parser.add_argument('--model_path', type=str, default='./model')
-    parser.add_argument('--writer_comment', type=str, default='wo_rlt_pos_lambda')
-    parser.add_argument('-s', '--save_model_in_epoch', default=True)
+    parser.add_argument('--model_path', type=str, default='./weight')
+    parser.add_argument('--writer_comment', type=str, default='hovertrans')
+    parser.add_argument('-s', '--save_model_in_epoch', action=True, default=True)
 
     # MODEL PARAMETER
     parser.add_argument('--img_size', type=int, default=256)
@@ -29,7 +29,7 @@ def config():
     parser.add_argument('--loss_function', type=str, default='CE')
     parser.add_argument('--optimizer', type=str, default='AdamW', choices=['SGD', 'Adam', 'AdamW'])
     parser.add_argument('--scheduler', type=str, default='cosine', choices=['cosine', 'step'])
-    parser.add_argument('--warmup_epochs', type=int, default=5)
+    parser.add_argument('--warmup_epochs', type=int, default=10)
     parser.add_argument('--warmup_decay', type=float, default=0.01)
     parser.add_argument('--min_lr', type=float, default=1e-6)
     parser.add_argument('--step', type=int, default=5)
