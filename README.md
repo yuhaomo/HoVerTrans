@@ -7,6 +7,7 @@ The implementation of: <br>
 - python 3.9
 - Pytorch 1.10.1
 - torchvision 0.11.2
+- opencv-python
 - pandas
 - scipy
 ## Setup
