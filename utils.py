@@ -5,45 +5,45 @@ from torchvision.transforms.transforms import CenterCrop, Grayscale, RandomHoriz
 import pandas as pd
 from glob import glob
 from PIL import Image
-import numpy as np
-import random
-import cv2
+# import numpy as np
+# import random
+# import cv2
 
 
-class AddGaussianNoise(object):
+# class AddGaussianNoise(object):
 
-    def __init__(self, mean=0.0, variance=1.0, amplitude=1.0,p=1):
+#     def __init__(self, mean=0.0, variance=1.0, amplitude=1.0,p=1):
 
-        self.mean = mean
-        self.variance = variance
-        self.amplitude = amplitude
-        self.p=p
+#         self.mean = mean
+#         self.variance = variance
+#         self.amplitude = amplitude
+#         self.p=p
 
-    def __call__(self, img):
-        if random.uniform(0, 1) < self.p:
-            img = np.array(img)
-            h, w = img.shape
-            N = self.amplitude * np.random.normal(loc=self.mean, scale=self.variance, size=(h, w))
-            img = N + img
-            img[img > 255] = 255                       
-            img = Image.fromarray(img.astype('uint8')).convert('L')
-            return img
-        else:
-            return img
+#     def __call__(self, img):
+#         if random.uniform(0, 1) < self.p:
+#             img = np.array(img)
+#             h, w = img.shape
+#             N = self.amplitude * np.random.normal(loc=self.mean, scale=self.variance, size=(h, w))
+#             img = N + img
+#             img[img > 255] = 255                       
+#             img = Image.fromarray(img.astype('uint8')).convert('L')
+#             return img
+#         else:
+#             return img
 
-class AddBlur(object):
-    def __init__(self, kernel=3, p=1):
-        self.kernel = kernel
-        self.p = p
+# class AddBlur(object):
+#     def __init__(self, kernel=3, p=1):
+#         self.kernel = kernel
+#         self.p = p
 
-    def __call__(self, img):
-        if random.uniform(0, 1) < self.p:
-            img = np.array(img)
-            img = cv2.blur(img, (self.kernel, self.kernel))
-            img = Image.fromarray(img.astype('uint8')).convert('L')
-            return img
-        else:
-            return img
+#     def __call__(self, img):
+#         if random.uniform(0, 1) < self.p:
+#             img = np.array(img)
+#             img = cv2.blur(img, (self.kernel, self.kernel))
+#             img = Image.fromarray(img.astype('uint8')).convert('L')
+#             return img
+#         else:
+#             return img
 
 class Custom_Dataset(Dataset):
     def __init__(self, root, transform, csv_path):
@@ -57,7 +57,7 @@ class Custom_Dataset(Dataset):
     def __getitem__(self, index):
         patience_info = self.info.iloc[index]
         file_name = patience_info['name']
-        file_path = glob(self.root+'/*/'+file_name)[0]
+        file_path = glob(self.root+'/'+file_name)[0]
         file_name = file_name.split('.')[0]
         label = patience_info['label']
         img = Image.open(file_path)

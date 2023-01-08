@@ -4,7 +4,11 @@
 The implementation of: <br>
 [**Hover-Trans: Anatomy-aware HoVer-Transformer for ROI-free Breast Cancer Diagnosis in Ultrasound Images**](https://arxiv.org/abs/2205.08390)
 ## Requirements
-- Pytorch
+- python 3.9
+- Pytorch 1.10.1
+- torchvision 0.11.2
+- pandas
+- scipy
 ## Setup
 ### Installation
 Clone the repo and install required packages:
@@ -42,7 +46,7 @@ pip install -r requirements.txt
 python train.py --data_path ./data/GDPH&SYSUCC/img --csv_path ./data/GDPH&SYSUCC/label.csv -s --batch_size 32 --class_num 2 --epochs 250 --lr 0.0001 
 ```
 ## Citation
-If you find this repository useful, please consider citing our work:
+If you find this repository useful or use this dataset, please consider citing our work:
 ```
 @misc{https://doi.org/10.48550/arxiv.2205.08390,
   doi = {10.48550/ARXIV.2205.08390},

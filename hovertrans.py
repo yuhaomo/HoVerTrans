@@ -150,8 +150,8 @@ class Block(nn.Module):
             out_features=dim * words_in_sentence, act_layer=act_layer, drop=drop)
         self.mlp2 = Mlp(in_features=dim * words_in_sentence, hidden_features=int(dim * words_in_sentence * mlp_ratio),
             out_features=dim * words_in_sentence, act_layer=act_layer, drop=drop)
-        self.relative_pos1 = nn.Parameter(torch.randn(1, num_heads, sentences, sentences))
-        self.relative_pos2 = nn.Parameter(torch.randn(1, num_heads, sentences, sentences))
+        # self.relative_pos1 = nn.Parameter(torch.randn(1, num_heads, sentences, sentences))
+        # self.relative_pos2 = nn.Parameter(torch.randn(1, num_heads, sentences, sentences))
 
     def forward(self, pixel_embed1, pixel_embed2, row_embed, column_embed, relative_pos=None):
         _, W_grid, _ = pixel_embed1.size()
