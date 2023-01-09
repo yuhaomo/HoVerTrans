@@ -93,7 +93,7 @@ def train(config, train_loader, test_loader, fold, test_idx):
                         print("=> saved best model")
                         if not os.path.exists(model_save_path):
                             os.makedirs(model_save_path)
-                        if config.save_model_in_epoch:
+                        if config.save_model:
                             torch.save(model.state_dict(), os.path.join(model_save_path, 'bestmodel.pth'))
                         with open(os.path.join(model_save_path, 'result.txt'), 'w') as f:
                             f.write('Best Result:\n')
@@ -103,7 +103,7 @@ def train(config, train_loader, test_loader, fold, test_idx):
             with torch.no_grad():
                 result = valid(config, model, test_loader, criterion)
             val_loss, val_acc, sen, spe, auc, pre, f1score = result
-            if config.save_model_in_epoch:
+            if config.save_model:
                 torch.save(model.state_dict(), os.path.join(model_save_path, 'last_epoch_model.pth'))
             with open(os.path.join(model_save_path, 'result.txt'), 'a') as f:
                 f.write('\nLast Result:\n')
