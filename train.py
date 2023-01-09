@@ -74,7 +74,7 @@ def train(config, train_loader, test_loader, fold, test_idx):
         lr_scheduler.step()
         
         if (epoch + 1) % config.log_step == 0:
-            if config.save_model_in_epoch:
+            if config.save_model:
                 print('[epoch %d]' % epoch)
                 with torch.no_grad():
                     result = valid(config, model, test_loader, criterion)

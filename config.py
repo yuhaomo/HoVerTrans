@@ -8,7 +8,7 @@ def config():
     parser.add_argument('--model_name', type=str, default='hovertrans')
     parser.add_argument('--model_path', type=str, default='./weight')
     parser.add_argument('--writer_comment', type=str, default='GDPH&SYSUCC')
-    parser.add_argument('-s', '--save_model_in_epoch', action='store_true', default=True)
+    parser.add_argument('--save_model', type=bool, default=True)
 
     # MODEL PARAMETER
     parser.add_argument('--img_size', type=int, default=256)

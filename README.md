@@ -44,7 +44,7 @@ pip install -r requirements.txt
 ```
 ### Training
 ```
-python train.py --data_path ./data/GDPH&SYSUCC/img --csv_path ./data/GDPH&SYSUCC/label.csv -s --batch_size 32 --class_num 2 --epochs 250 --lr 0.0001 
+python train.py --data_path ./data/GDPH&SYSUCC/img --csv_path ./data/GDPH&SYSUCC/label.csv --batch_size 32 --class_num 2 --epochs 250 --lr 0.0001 
 ```
 ## Citation
 If you find this repository useful or use our dataset, please consider citing our work:
