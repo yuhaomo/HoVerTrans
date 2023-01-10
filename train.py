@@ -74,31 +74,30 @@ def train(config, train_loader, test_loader, fold, test_idx):
         lr_scheduler.step()
         
         if (epoch + 1) % config.log_step == 0:
-            if config.save_model:
-                print('[epoch %d]' % epoch)
-                with torch.no_grad():
-                    result = valid(config, model, test_loader, criterion)
-                val_loss, val_acc, sen, spe, auc, pre, f1score = result
-                writer.add_scalar('Val/F1score', f1score, global_step=epoch)
-                writer.add_scalar('Val/Pre', pre, global_step=epoch)
-                writer.add_scalar('Val/Spe', spe, global_step=epoch)
-                writer.add_scalar('Val/Sen', sen, global_step=epoch)
-                writer.add_scalar('Val/AUC', auc, global_step=epoch)
-                writer.add_scalar('Val/Acc', val_acc, global_step=epoch)
-                writer.add_scalar('Val/Val_loss', val_loss, global_step=epoch)
+            print('[epoch %d]' % epoch)
+            with torch.no_grad():
+                result = valid(config, model, test_loader, criterion)
+            val_loss, val_acc, sen, spe, auc, pre, f1score = result
+            writer.add_scalar('Val/F1score', f1score, global_step=epoch)
+            writer.add_scalar('Val/Pre', pre, global_step=epoch)
+            writer.add_scalar('Val/Spe', spe, global_step=epoch)
+            writer.add_scalar('Val/Sen', sen, global_step=epoch)
+            writer.add_scalar('Val/AUC', auc, global_step=epoch)
+            writer.add_scalar('Val/Acc', val_acc, global_step=epoch)
+            writer.add_scalar('Val/Val_loss', val_loss, global_step=epoch)
 
-                if epoch > config.epochs//4:
-                    if val_acc>best_acc:
-                        best_acc=val_acc
-                        print("=> saved best model")
-                        if not os.path.exists(model_save_path):
-                            os.makedirs(model_save_path)
-                        if config.save_model:
-                            torch.save(model.state_dict(), os.path.join(model_save_path, 'bestmodel.pth'))
-                        with open(os.path.join(model_save_path, 'result.txt'), 'w') as f:
-                            f.write('Best Result:\n')
-                            f.write('Acc: %f, Spe: %f, Sen: %f, AUC: %f, Pre: %f, F1score: %f'
-                                    % (val_acc, spe, sen, auc, pre, f1score))
+            if epoch > config.epochs//4:
+                if val_acc>best_acc:
+                    best_acc=val_acc
+                    print("=> saved best model")
+                    if not os.path.exists(model_save_path):
+                        os.makedirs(model_save_path)
+                    if config.save_model:
+                        torch.save(model.state_dict(), os.path.join(model_save_path, 'bestmodel.pth'))
+                    with open(os.path.join(model_save_path, 'result.txt'), 'w') as f:
+                        f.write('Best Result:\n')
+                        f.write('Acc: %f, Spe: %f, Sen: %f, AUC: %f, Pre: %f, F1score: %f'
+                                % (val_acc, spe, sen, auc, pre, f1score))
         if epoch+1==config.epochs:
             with torch.no_grad():
                 result = valid(config, model, test_loader, criterion)
