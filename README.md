@@ -34,7 +34,9 @@ pip install -r requirements.txt
 ```
 - The format of the label.csv is as follows:
 ```
++------------------+-------+
 | name             | label |
++------------------+-------+
 | benign(0).png    |   0   |
 | benign(1).png    |   0   |
 | benign(2).png    |   0   |
