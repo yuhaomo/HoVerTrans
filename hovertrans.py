@@ -36,7 +36,7 @@ class Attention(nn.Module):
 
         self.qk = nn.Linear(dim, dim * 2, bias=qkv_bias)
         self.v = nn.Linear(dim, dim, bias=qkv_bias)
-        self.attn_drop = nn.Dropout(attn_drop, inplace=True)
+        self.attn_drop = nn.Dropout(attn_drop, inplace=False)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop, inplace=True)
 
@@ -317,6 +317,11 @@ class HoverTrans(nn.Module):
         elif isinstance(m, nn.LayerNorm):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
+        if isinstance(m, nn.Conv2d):
+            trunc_normal_(m.weight)
+            if isinstance(m, nn.Conv2d) and m.bias is not None:
+                trunc_normal_(m.weight)
+                nn.init.constant_(m.bias, 0)
 
     def forward_features(self, x):
         img_ds = self.downsample[0](x)
