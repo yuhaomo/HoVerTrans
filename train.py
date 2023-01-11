@@ -18,7 +18,7 @@ def train(config, train_loader, test_loader, fold, test_idx):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     # MODEL
-    model = create_model(img_size=config.img_size, num_classes=config.class_num, drop_rate=0.1, 
+    model = create_model(img_size=config.img_size, num_classes=config.class_num, drop_rate=0.1, attn_drop_rate=0.1,
             patch_size=config.patch_size, dim=config.dim, depth=config.depth, num_heads=config.num_heads,
             num_inner_head=config.num_inner_head)
     model = model.to(device)
