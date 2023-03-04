@@ -2,7 +2,7 @@
 ![network](https://github.com/yuhaomo/HoVerTrans/blob/main/network.png)
 ## Introduction
 The implementation of: <br>
-[**Hover-Trans: Anatomy-aware HoVer-Transformer for ROI-free Breast Cancer Diagnosis in Ultrasound Images**](https://arxiv.org/abs/2205.08390)
+[**Hover-Trans: Anatomy-aware HoVer-Transformer for ROI-free Breast Cancer Diagnosis in Ultrasound Images**](https://ieeexplore.ieee.org/document/10015121)
 ## Requirements
 - python 3.9
 - Pytorch 1.10.1
