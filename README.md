@@ -51,14 +51,13 @@ python train.py --data_path ./data/GDPH&SYSUCC/img --csv_path ./data/GDPH&SYSUCC
 ## Citation
 If you find this repository useful or use our dataset, please consider citing our work:
 ```
-@misc{https://doi.org/10.48550/arxiv.2205.08390,
-  doi = {10.48550/ARXIV.2205.08390},
-  url = {https://arxiv.org/abs/2205.08390},
-  author = {Mo, Yuhao and Han, Chu and Liu, Yu and Liu, Min and Shi, Zhenwei and Lin, Jiatai and Zhao, Bingchao and Huang, Chunwang and Qiu, Bingjiang and Cui, Yanfen and Wu, Lei and Pan, Xipeng and Xu, Zeyan and Huang, Xiaomei and Liu, Zaiyi and Wang, Ying and Liang, Changhong},
-  keywords = {Image and Video Processing (eess.IV), Computer Vision and Pattern Recognition (cs.CV), FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {HoVer-Trans: Anatomy-aware HoVer-Transformer for ROI-free Breast Cancer Diagnosis in Ultrasound Images},
-  publisher = {arXiv},
-  year = {2022},
-  copyright = {Creative Commons Attribution 4.0 International}
-}
+@ARTICLE{10015121,
+  author={Mo, Yuhao and Han, Chu and Liu, Yu and Liu, Min and Shi, Zhenwei and Lin, Jiatai and Zhao, Bingchao and Huang, Chunwang and Qiu, Bingjiang and Cui, Yanfen and Wu, Lei and Pan, Xipeng and Xu, Zeyan and Huang, Xiaomei and Li, Zhenhui and Liu, Zaiyi and Wang, Ying and Liang, Changhong},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={HoVer-Trans: Anatomy-aware HoVer-Transformer for ROI-free Breast Cancer Diagnosis in Ultrasound Images}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TMI.2023.3236011}}
 ```
