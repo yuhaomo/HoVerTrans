@@ -37,8 +37,8 @@ def valid(config, net, val_loader, criterion):
     # N    TN FN
     # P    FP TP
     acc = cm.diag().sum() / cm.sum()
-    spe, sen = cm.diag() / (cm.sum(dim=1) + 1e-6)
-    pre = cm.diag()[1] / (cm.sum(dim=0) + 1e-6)[1]
+    spe, sen = cm.diag() / (cm.sum(dim=0) + 1e-6)
+    pre = cm.diag()[1] / (cm.sum(dim=1) + 1e-6)[1]
     rec = sen
     f1score = 2*pre*rec / (pre+rec+ 1e-6)
     auc = roc_auc_score(y_true, y_score)
